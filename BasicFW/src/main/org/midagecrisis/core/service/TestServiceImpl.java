@@ -1,6 +1,7 @@
 package org.midagecrisis.core.service;
 
 import org.midagecrisis.core.dao.TestDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
