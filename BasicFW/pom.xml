@@ -14,6 +14,12 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>4.3.5.RELEASE</version>
@@ -32,6 +38,12 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
 			<version>4.3.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.3.5.RELEASE</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -70,10 +82,29 @@
 						<artifactId>maven-war-plugin</artifactId>
 						<version>2.2</version>
 						<configuration>
-							<includeTypes>xml</includeTypes>
 							<ignoreWebxml>false</ignoreWebxml>
-							<webXml>web/WEB-INF/web.xml</webXml>
+							<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+
 						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>Deploy-Artifact-To-Tomcat</id>
+								<phase>install</phase>
+								<configuration>
+									<target>
+										<copy file="target/${project.artifactId}-${project.version}.war"
+											todir="D:/tomcat/webapps" />
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
