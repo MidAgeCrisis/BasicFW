@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/api/v3")
+@RequestMapping("/user")
 public class UserController extends AbstractController{
 	public static Map<String, String> user = new HashMap();
 	{
@@ -21,7 +21,7 @@ public class UserController extends AbstractController{
 	}
 	
 	@RequestMapping(value="/findUser", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody String find(
+	public @ResponseBody String findUser(
 			@RequestParam String userId
 			) throws Exception {
 		return user.get(userId);

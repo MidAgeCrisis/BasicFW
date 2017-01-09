@@ -22,7 +22,7 @@ import org.testng.annotations.Test;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 
 @WebAppConfiguration
-@ContextConfiguration(locations = {"classpath*:**/applicationContext-mvc.xml"})
+@ContextConfiguration(locations = {"classpath*:**/applicationContext-fw-mvc.xml"})
 @Test
 public abstract class AbstractControllerTestSupport extends AbstractTestNGSpringContextTests {
 

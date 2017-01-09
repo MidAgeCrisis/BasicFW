@@ -11,15 +11,15 @@ import org.testng.annotations.Test;
 public class UserControllerTest extends AbstractControllerTestSupport {
 
 	@Test
-	public void testGetPricePointWithBokuShouldWork() throws Exception {
+	public void findUser() throws Exception {
 
-    	String endpoint = "/api/v3/findUser?userId=1";
+    	String endpoint = "/user/findUser?userId=1";
     	MvcResult result = mockMvc
     		.perform(get(endpoint))
     		.andExpect(status().isOk())
     		.andReturn();
     	String content = result.getResponse().getContentAsString();
-    	Assert.assertTrue(content.contains("A"));
+    	Assert.assertTrue(content.contains("a"));
     }
 
 }
