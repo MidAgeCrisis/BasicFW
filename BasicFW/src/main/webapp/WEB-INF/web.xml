@@ -3,21 +3,28 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-	<display-name>spring4</display-name>
-	<description>My First Spring Project</description>
+	<display-name>BasicFW</display-name>
+	<description>basic framework for MidAgeCrisis</description>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
 	<servlet>
 		<servlet-name>DispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>WEB-INF/classes/applicationContext-fw.xml</param-value>
+			<param-value>
+                classpath:applicationContext.xml
+				classpath:applicationContext-fw.xml
+				classpath:applicationContext-fw-mvc.xml
+			</param-value>
 		</init-param>
 		<load-on-startup>2</load-on-startup>
-	</servlet>  
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>DispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
